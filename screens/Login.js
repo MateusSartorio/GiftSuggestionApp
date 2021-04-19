@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#822766db',
+    backgroundColor: '#d3c4d1',
     marginTop: Constants.StatusBarHeight,
   },
   containerLogo: {
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   buttonSubmit: {
-    backgroundColor: '#198dc8',
+    backgroundColor: '#56cbf9',
     width: '90%',
     height: 50,
     alignItems: 'center',
