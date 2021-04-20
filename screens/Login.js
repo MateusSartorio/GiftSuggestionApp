@@ -12,7 +12,7 @@ import {
   Keyboard
 } from 'react-native';
 
-export default function Login() {
+export default function Login({navigation}) {
   // size for logo image
   const sizeLogo = {
     x: 200,
@@ -26,6 +26,14 @@ export default function Login() {
   const [name, setName] = useState(() => '');
   const [password, setPassword] = useState(() => '');
 
+  // function to go to Home page
+  function goToHomePage() {
+    navigation.reset({
+      index: 0,
+      routes: [{name: 'Home'}]
+    });
+  }
+
   // function to save name from textinput
   function handleName(name) {
     setName(name);
@@ -34,11 +42,6 @@ export default function Login() {
   // function to save password from textinput
   function handlePassword(password) {
     setPassword(password);
-  }
-
-  function alertValues() {
-    alert(name);
-    alert(password);
   }
 
   // deal with lifecycle of the app
@@ -129,7 +132,7 @@ export default function Login() {
 
         <TouchableOpacity 
           style={styles.buttonSubmit}
-          onPress={alertValues}
+          onPress={goToHomePage}
         >
           <Text style={styles.submitText}>Login</Text>
         </TouchableOpacity>
@@ -147,7 +150,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#d3c4d1',
+    backgroundColor: '#52bdcb',
     marginTop: Constants.StatusBarHeight,
   },
   containerLogo: {
@@ -170,7 +173,7 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   buttonSubmit: {
-    backgroundColor: '#56cbf9',
+    backgroundColor: '#0c1731',
     width: '90%',
     height: 50,
     alignItems: 'center',
