@@ -1,30 +1,38 @@
-import React, {useState, useEffect} from 'react';
-import Constants from 'expo-constants';
-import { 
-  StyleSheet,
-  Text,
-  View,
-  KeyboardAvoidingView,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  Animated,
-  Keyboard
-} from 'react-native';
+import 'react-native-gesture-handler';
+import { BlurView } from 'expo-blur';
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 
-export default function App() { 
+import Login from '../screens/Login';
+import Home from '../screens/Home';
+
+const Stack = createStackNavigator();
+
+export default function Index() {
   return (
-    <View style={styles.mainContainer}>
-      <Text>Hello world</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{
+            headerTransparent: true,
+            headerTitleStyle: {
+              color: '#fff',
+            },
+            headerBackground: () => (
+              <BlurView
+                tint="dark"
+                intensity={10}
+                style={StyleSheet.absoluteFill}
+              /> 
+            ),
+          }}
+        />
+        <Stack.Screen name="Home" component={Home} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff'
-  }
-});
