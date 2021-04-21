@@ -25,13 +25,29 @@ export default function Index() {
             headerBackground: () => (
               <BlurView
                 tint="dark"
-                intensity={10}
+                intensity={20}
                 style={StyleSheet.absoluteFill}
               /> 
             ),
           }}
         />
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen 
+          name="Home" 
+          component={Home}
+          options={{
+            headerTransparent: true,
+            headerTitleStyle: {
+              color: '#fff',
+            },
+            headerBackground: () => (
+              <BlurView
+                tint="dark"
+                intensity={20}
+                style={StyleSheet.absoluteFill}
+              /> 
+            ),
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
