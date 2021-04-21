@@ -6,12 +6,30 @@ import {
   View,
   KeyboardAvoidingView,
   ImageBackground,
-  Platform
+  Platform,
+  TouchableOpacity,
 } from 'react-native';
 
 import ButtomHome from '../components/ButtomHome';
 
-export default Home = () => {
+export default Home = ({navigation}) => {
+  
+  function goToGenerateGift() {
+    navigation.navigate('GenerateGift');
+  }
+
+  function goToTopGifts() {
+    navigation.navigate('TopGifts');
+  }
+
+  function goToRateApp() {
+    navigation.navigate('RateApp');
+  }
+
+  function goToGenerateMessage() {
+    navigation.navigate('GenerateMessage');
+  }
+
   return (
     <KeyboardAvoidingView style={styles.mainContainer}>
       <ImageBackground style={styles.backgroundImage} source={require('../assets/backgroundHome.jpg')}>
@@ -21,7 +39,6 @@ export default Home = () => {
           <Text style={styles.messageSecondaryText}>Lhe desejo uma ótima vida!</Text>
         </View>
 
-
         <View style={styles.buttonsContainer}>
           <ButtomHome 
             text='Presentear'
@@ -29,6 +46,7 @@ export default Home = () => {
             height={160}
             color='#0ebe80' 
             icon={require('../assets/icons/gift.png')}
+            onPress={goToGenerateGift}
           />
 
           <ButtomHome text='Top Presentes'
@@ -36,6 +54,7 @@ export default Home = () => {
             height={160}
             color='#0ebe80'
             icon={require('../assets/icons/bag.png')}
+            onPress={goToTopGifts}
            />
         </View>
 
@@ -45,6 +64,7 @@ export default Home = () => {
             height={160}
             color='#0ebe80'
             icon={require('../assets/icons/hearth.png')}
+            onPress={goToGenerateMessage}
            />
 
           <ButtomHome text='Avaliar'
@@ -52,6 +72,7 @@ export default Home = () => {
             height={160}
             color='#0ebe80'
             icon={require('../assets/icons/star.png')}
+            onPress={goToRateApp}
            />
         </View>
 
