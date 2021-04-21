@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-export default ButtomHome = ({text, height, width, color, icon}) => {
+export default ButtomHome = ({text, height, width, color, icon, onPress}) => {
   const innerStyles = {
     height: height,
     width: width,
@@ -9,7 +9,10 @@ export default ButtomHome = ({text, height, width, color, icon}) => {
   };
 
   return (
-    <TouchableOpacity style={[styles.mainContainer, innerStyles]}>
+    <TouchableOpacity 
+      style={[styles.mainContainer, innerStyles]}
+      onPress={onPress}
+    >
       <Image style={{height: 50, width: 50}} source={icon}/>
       <Text style={styles.text}>{text}</Text>
     </TouchableOpacity>
