@@ -9,7 +9,8 @@ import {
   TextInput,
   TouchableOpacity,
   Animated,
-  Keyboard
+  Keyboard,
+  ImageBackground,
 } from 'react-native';
 
 export default function Login({navigation}) {
@@ -94,53 +95,55 @@ export default function Login({navigation}) {
 
   return (
     <KeyboardAvoidingView style={styles.background}>
-      <View style={styles.containerLogo}>
-        <Animated.Image 
-          style={{
-            height: imageLogo.x,
-            width: imageLogo.y,
-            borderRadius: 10,
-          }}
-          source={require('../assets/logo.jpg')}
-        />
-      </View>
+      <ImageBackground style={styles.backgroundLogin} source={require('../assets/backgroundLogin.jpg')}>
+        <View style={styles.containerLogo}>
+          <Animated.Image 
+            style={{
+              height: imageLogo.x,
+              width: imageLogo.y,
+              borderRadius: 10,
+            }}
+            source={require('../assets/logo.jpg')}
+          />
+        </View>
 
-      <Animated.View 
-        style={[
-          styles.mainContainer, {
-            opacity: opacity,
-            transform: [ {
-              translateY: offset.y
-            }]
-          }
-        ]}
-      >
-        <TextInput
-          style={styles.input}
-          placeholder='e-mail'
-          autocorrect={false}
-          onChangeText={(text) => handleName(text)}
-        />
-
-        <TextInput
-          style={styles.input}
-          placeholder='password'
-          autocorrect={false}
-          secureTextEntry={true}
-          onChangeText={(text) => handlePassword(text)}
-        />
-
-        <TouchableOpacity 
-          style={styles.buttonSubmit}
-          onPress={goToHomePage}
+        <Animated.View 
+          style={[
+            styles.mainContainer, {
+              opacity: opacity,
+              transform: [ {
+                translateY: offset.y
+              }]
+            }
+          ]}
         >
-          <Text style={styles.submitText}>Login</Text>
-        </TouchableOpacity>
+          <TextInput
+            style={styles.input}
+            placeholder='e-mail'
+            autocorrect={false}
+            onChangeText={(text) => handleName(text)}
+          />
 
-        <TouchableOpacity style={styles.buttonCreateAccount}>
-          <Text style={styles.buttonCreateAccountText}>Create Account</Text>
-        </TouchableOpacity>
-      </Animated.View>
+          <TextInput
+            style={styles.input}
+            placeholder='password'
+            autocorrect={false}
+            secureTextEntry={true}
+            onChangeText={(text) => handlePassword(text)}
+          />
+
+          <TouchableOpacity 
+            style={styles.buttonSubmit}
+            onPress={goToHomePage}
+          >
+            <Text style={styles.submitText}>Login</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.buttonCreateAccount}>
+            <Text style={styles.buttonCreateAccountText}>Create Account</Text>
+          </TouchableOpacity>
+        </Animated.View>
+      </ImageBackground>
     </KeyboardAvoidingView>
   );
 }
@@ -152,6 +155,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#52bdcb',
     marginTop: Constants.StatusBarHeight,
+  },
+  backgroundLogin: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
   },
   containerLogo: {
     flex: 1,
