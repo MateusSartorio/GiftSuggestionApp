@@ -13,7 +13,7 @@ import {
   ImageBackground,
 } from 'react-native';
 
-export default function Login({navigation}) {
+export default Login = ({navigation}) => {
   // size for logo image
   const sizeLogo = {
     x: 200,

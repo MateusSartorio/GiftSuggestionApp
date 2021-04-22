@@ -15,7 +15,7 @@ import GenerateMessage from '../screens/GenerateMessage';
 
 const Stack = createStackNavigator();
 
-export default function Index() {
+export default Index = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Login'>
