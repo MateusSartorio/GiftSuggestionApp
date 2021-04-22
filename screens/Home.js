@@ -44,7 +44,7 @@ export default Home = ({navigation}) => {
             text='Presentear'
             width={160}
             height={160}
-            color='#0ebe80' 
+            color='#560bad' 
             icon={require('../assets/icons/gift.png')}
             onPress={goToGenerateGift}
           />
@@ -52,7 +52,7 @@ export default Home = ({navigation}) => {
           <ButtomHome text='Top Presentes'
             width={160}
             height={160}
-            color='#0ebe80'
+            color='#b5179e'
             icon={require('../assets/icons/bag.png')}
             onPress={goToTopGifts}
            />
@@ -62,7 +62,7 @@ export default Home = ({navigation}) => {
           <ButtomHome text='Mensagem'
             width={160}
             height={160}
-            color='#0ebe80'
+            color='#003049'
             icon={require('../assets/icons/hearth.png')}
             onPress={goToGenerateMessage}
            />
@@ -70,7 +70,7 @@ export default Home = ({navigation}) => {
           <ButtomHome text='Avaliar'
             width={160}
             height={160}
-            color='#0ebe80'
+            color='#0f80aa'
             icon={require('../assets/icons/star.png')}
             onPress={goToRateApp}
            />
