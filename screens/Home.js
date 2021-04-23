@@ -7,7 +7,6 @@ import {
   KeyboardAvoidingView,
   ImageBackground,
   Platform,
-  TouchableOpacity,
 } from 'react-native';
 
 import ButtomHome from '../components/ButtomHome';
