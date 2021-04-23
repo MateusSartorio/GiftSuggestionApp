@@ -23,6 +23,7 @@ export default Index = () => {
           name='Login'
           component={Login}
           options={{
+            headerTitleAlign:'center',
             headerTransparent: true,
             headerTitleStyle: {
               color: '#fff',
@@ -40,6 +41,7 @@ export default Index = () => {
           name='Home' 
           component={Home}
           options={{
+            headerTitleAlign:'center',
             headerTransparent: true,
             headerTitleStyle: {
               color: '#fff',
@@ -57,6 +59,7 @@ export default Index = () => {
           name='GenerateGift' 
           component={GenerateGift}
           options={{
+            headerTitleAlign:'center',
             headerTransparent: true,
             headerTitleStyle: {
               color: '#fff',
@@ -74,6 +77,7 @@ export default Index = () => {
           name='TopGifts' 
           component={TopGifts}
           options={{
+            headerTitleAlign:'center',
             headerTransparent: true,
             headerTitleStyle: {
               color: '#fff',
@@ -91,6 +95,7 @@ export default Index = () => {
           name='RateApp' 
           component={RateApp}
           options={{
+            headerTitleAlign:'center',
             headerTransparent: true,
             headerTitleStyle: {
               color: '#fff',
@@ -108,6 +113,7 @@ export default Index = () => {
           name='GenerateMessage' 
           component={GenerateMessage}
           options={{
+            headerTitleAlign:'center',
             headerTransparent: true,
             headerTitleStyle: {
               color: '#fff',
