@@ -14,12 +14,15 @@ import {
   Picker,
 } from 'react-native';
 
+import getRandomGift from '../utils/getRandomGift';
+
 export default GenerateGift = ({route}) => {
   const nameUser = route.params?.nameUser;
   const [selectedValueFirstPicker, setSelectedValueFirstPicker] = useState(() => '');
   const [selectedValueSecondPicker, setSelectedValueSecondPicker] = useState(() => '');
   const [selectedValueThirdPicker, setSelectedValueThirdPicker] = useState(() => '');
   const [openModal, setOpenModal] = useState(() => false);
+  const [randomGift, setRandomGift] = useState(() => getRandomGift());
 
   return (
     <KeyboardAvoidingView style={styles.mainContainer}>
@@ -104,9 +107,12 @@ export default GenerateGift = ({route}) => {
           </View>
 
           <View style={styles.modalGiftsContainer}>
-            <Image style={[styles.giftImage, {marginBottom: 30}]} source={require('../assets/gifts/celular.jpg')} />
+            <Image style={[styles.giftImage, {marginBottom: 30}]} source={randomGift}/>
             
-            <TouchableOpacity style={[styles.button, {width: '70%'}]}>
+            <TouchableOpacity 
+              style={[styles.button, {width: '70%'}]}
+              onPress={() => setRandomGift(getRandomGift())}
+            >
               <Text style={styles.textButton}>Gerar Outro</Text>
             </TouchableOpacity>
 
