@@ -31,7 +31,10 @@ export default Login = ({navigation}) => {
   function goToHomePage() {
     navigation.reset({
       index: 0,
-      routes: [{name: 'Home'}]
+      routes: [{ 
+        name: 'Home', 
+        params: {nameUser: name}
+      }],
     });
   }
 

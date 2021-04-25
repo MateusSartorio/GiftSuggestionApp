@@ -11,10 +11,10 @@ import {
 
 import ButtomHome from '../components/ButtomHome';
 
-export default Home = ({navigation}) => {
+export default Home = ({navigation, route}) => {
   
   function goToGenerateGift() {
-    navigation.navigate('GenerateGift');
+    navigation.navigate('GenerateGift', {nameUser: route.params?.nameUser});
   }
 
   function goToTopGifts() {
@@ -34,7 +34,7 @@ export default Home = ({navigation}) => {
       <ImageBackground style={styles.backgroundImage} source={require('../assets/backgroundHome.jpg')}>
 
         <View style={styles.messageContainer}>
-          <Text style={styles.messageMainText}>Olá Ronivaldo, </Text>
+          <Text style={styles.messageMainText}>Olá {route.params?.nameUser}, </Text>
           <Text style={styles.messageSecondaryText}>Lhe desejo uma ótima vida!</Text>
         </View>
 
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   messageSecondaryText: {
-    fontSize: 23,
+    fontSize: 20,
     padding: 3,
     alignSelf: 'center',
     color: '#fff',

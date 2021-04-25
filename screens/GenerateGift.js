@@ -8,22 +8,26 @@ import {
   ImageBackground,
   Platform,
   TextInput,
+  Modal,
+  Image,
   TouchableOpacity,
   Picker,
 } from 'react-native';
 
-export default GenerateGift = () => {
+export default GenerateGift = ({route}) => {
+  const nameUser = route.params?.nameUser;
   const [selectedValueFirstPicker, setSelectedValueFirstPicker] = useState(() => '');
   const [selectedValueSecondPicker, setSelectedValueSecondPicker] = useState(() => '');
   const [selectedValueThirdPicker, setSelectedValueThirdPicker] = useState(() => '');
+  const [openModal, setOpenModal] = useState(() => false);
 
   return (
     <KeyboardAvoidingView style={styles.mainContainer}>
       <ImageBackground style={styles.backgroundImage} source={require('../assets/backgroundGenerateGift.jpg')}>
 
         <View style={styles.topTextContainer}>
-          <Text style={{fontSize: 25, paddingLeft: 20}}>Olá de novo Ronivaldo!</Text>
-          <Text style={{fontSize: 18, padding: 10}}>Vamos lá! Nos conte um pouco sobre seu amigo!</Text>
+          <Text style={{fontSize: 27, paddingLeft: 10, color: '#fff'}}>Olá de novo {nameUser}!</Text>
+          <Text style={{fontSize: 18, padding: 10, color: '#fff'}}>Vamos lá! Nos conte um pouco sobre seu amigo!</Text>
         </View>
 
         <View style={styles.entryDataContainer}>
@@ -79,12 +83,44 @@ export default GenerateGift = () => {
             </Picker>
           </View>
 
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity 
+            style={styles.button}
+            onPress={() => setOpenModal(true)}
+          >
             <Text style={styles.textButton}>Gerar Presente!</Text>
           </TouchableOpacity>
         </View>
 
       </ImageBackground>
+
+      <Modal 
+        style={styles.mainContainer}
+        visible={openModal}
+      >
+        <ImageBackground style={styles.backgroundImage} source={require('../assets/backgroundModalHome.jpg')}>
+          <View style={styles.messageModalContainer}>
+            <Text style={styles.mainText}>Que prazer vê-lo aqui {nameUser}!</Text>
+            <Text style={styles.secondaryText}>Acho que seu amigo vai amar!</Text>
+          </View>
+
+          <View style={styles.modalGiftsContainer}>
+            <Image style={[styles.giftImage, {marginBottom: 30}]} source={require('../assets/gifts/celular.jpg')} />
+            
+            <TouchableOpacity style={[styles.button, {width: '70%'}]}>
+              <Text style={styles.textButton}>Gerar Outro</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+              style={[styles.button, {backgroundColor: '#e63946'}]}
+              onPress={() => setOpenModal(false)}
+            >
+              <Text style={{color: '#fff'}}>Sair</Text>
+            </TouchableOpacity>
+          </View>
+
+        </ImageBackground>
+      </Modal>
+
     </KeyboardAvoidingView>
   );
 }
@@ -108,6 +144,16 @@ const styles = StyleSheet.create({
     flex: 0.5,
     justifyContent: 'center',
   },
+  mainText: {
+    fontSize: 26,
+    padding: 5,
+    color: '#fff',
+  },
+  secondaryText: {
+    fontSize: 20,
+    padding: 10,
+    color: '#fff',
+  },
   inputContainer: {
     width: '100%',
     alignItems: 'center',
@@ -124,7 +170,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     justifyContent: 'flex-start',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   pickerContainer: {
     backgroundColor: '#161a1d',
@@ -152,7 +198,23 @@ const styles = StyleSheet.create({
     marginTop: '10%',
   },
   textButton: {
-    fontSize: 25,
-
-  }
+    fontSize: 20,
+    color: '#fff'
+  },
+  giftImage: {
+    width: 300,
+    height: 300,
+    borderRadius: 150,
+  },
+  messageModalContainer: {
+    flex: 0.3,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+  modalGiftsContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%'
+  },
 });
