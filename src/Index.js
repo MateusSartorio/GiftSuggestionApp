@@ -59,6 +59,7 @@ export default Index = () => {
           name='GenerateGift' 
           component={GenerateGift}
           options={{
+            title: 'Presentear',
             headerTitleAlign:'center',
             headerTransparent: true,
             headerTitleStyle: {
@@ -77,6 +78,7 @@ export default Index = () => {
           name='TopGifts' 
           component={TopGifts}
           options={{
+            title: 'Top Presentes',
             headerTitleAlign:'center',
             headerTransparent: true,
             headerTitleStyle: {
@@ -95,6 +97,7 @@ export default Index = () => {
           name='RateApp' 
           component={RateApp}
           options={{
+            title: 'Avaliação',
             headerTitleAlign:'center',
             headerTransparent: true,
             headerTitleStyle: {
@@ -113,6 +116,7 @@ export default Index = () => {
           name='GenerateMessage' 
           component={GenerateMessage}
           options={{
+            title: 'Mensagem de Amor',
             headerTitleAlign:'center',
             headerTransparent: true,
             headerTitleStyle: {
