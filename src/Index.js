@@ -12,6 +12,7 @@ import GenerateGift from '../screens/GenerateGift';
 import TopGifts from '../screens/TopGifts';
 import RateApp from '../screens/RateApp';
 import GenerateMessage from '../screens/GenerateMessage';
+import Message from '../screens/Message';
 
 const Stack = createStackNavigator();
 
@@ -121,6 +122,25 @@ export default Index = () => {
             ),
           }}
         />
+        <Stack.Screen 
+          name='Mensagem' 
+          component={Message}
+          options={{
+            headerTransparent: true,
+            headerTitleStyle: {
+              color: '#fff',
+            },
+            headerBackground: () => (
+              <BlurView
+                tint='dark'
+                intensity={20}
+                style={StyleSheet.absoluteFill}
+              /> 
+            ),
+          }}
+        />
+        
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
